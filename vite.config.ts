@@ -5,7 +5,9 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/Dynamic-Disaster-Communication-Hub/',
+    base: process.env.GITHUB_ACTIONS === 'true'
+      ? '/Dynamic-Disaster-Communication-Hub/'
+      : '/',
 
     plugins: [react(), tailwindcss()],
 
